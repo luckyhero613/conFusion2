@@ -13,8 +13,11 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms'; 
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { HttpClientModule } from '@angular/common/http';
+import { baseURL } from './shared/baseurl';
 
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -34,6 +37,8 @@ import { ContactComponent } from './contact/contact.component';
 import { DishService } from './services/dish.service';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { PromotionService } from './services/promotion.service';
+import { LeaderService } from './services/leader.service';
 
 
 @NgModule({
@@ -57,8 +62,10 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatSlideToggleModule,
     MatFormFieldModule, 
+    MatSliderModule,
     MatInputModule,
     MatCheckboxModule,
+    HttpClientModule,
     MatProgressSpinnerModule,
     AppRoutingModule,
     MatToolbarModule,
@@ -73,7 +80,10 @@ import { LoginComponent } from './login/login.component';
     LoginComponent
   ],
   providers: [
-    DishService
+    DishService,
+    PromotionService,
+    LeaderService,
+    {provide: 'BaseURL', useValue: baseURL}
   ],
   bootstrap: [AppComponent]
 })
